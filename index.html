@@ -1,284 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jhenor Aquino | Front-End Developer</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-      scroll-behavior: smooth;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jhenor Aquino | Front-End Developer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+/* Reset & General */
+* { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif; scroll-behavior:smooth; transition:all 0.3s; }
+body { background:#f8fafc; color:#1e293b; line-height:1.6; }
 
-    body {
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.6;
-    }
+/* NAVIGATION */
+nav { background:transparent; color:#fff; display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; position:absolute; top:0; left:0; width:100%; z-index:10; }
+nav h1 { font-size:1.4rem; letter-spacing:0.5px; }
+nav ul { list-style:none; display:flex; gap:1.5rem; align-items:center; }
+nav a { color:#cbd5e1; text-decoration:none; font-size:0.95rem; }
+nav a:hover { color:#3b82f6; }
+.toggle-btn { cursor:pointer; background:#3b82f6; color:#fff; padding:0.3rem 0.8rem; border-radius:5px; font-size:0.85rem; }
+.toggle-btn:hover { background:#2563eb; }
 
-    /* NAVIGATION */
-    nav {
-      background: #0f172a;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+/* Hamburger menu for mobile */
+#hamburger { display:none; cursor:pointer; font-size:1.5rem; }
+nav ul.mobile { display:none; flex-direction:column; gap:1rem; background:#0f172a; position:absolute; top:60px; right:20px; padding:1rem 2rem; border-radius:8px; }
 
-    nav h1 {
-      font-size: 1.4rem;
-      letter-spacing: 0.5px;
-    }
+@media (max-width:768px){
+  nav ul { display:none; }
+  #hamburger { display:block; color:#fff; }
+  nav ul.mobile.show { display:flex; }
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
+/* HERO SECTION */
+.hero {
+  width: 100%;
+  max-width: 100%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  background: url('background.png') center/cover no-repeat;
+  color: #fff;
+  margin-top: 0;
+}
+.hero .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  gap:2rem;
+  position:relative;
+  z-index:1;
+}
+.hero-left { text-align:center; }
+.hero h2 {
+  font-weight:600; 
+  display:inline; 
+  border-right:2px solid #ffffff; 
+  white-space:nowrap; 
+  overflow:hidden; 
+  color:inherit; 
+  margin-bottom:0.5rem;
+}
+.hero h3 {
+  font-weight:600;
+  margin-bottom:1rem;
+  color:inherit;
+}
+.hero p { font-size:1rem; color:inherit; max-width:600px; margin:0 auto 2rem; }
+.btn-container { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+.btn { background:#0f172a; color:#fff; padding:0.8rem 1.5rem; border-radius:6px; font-weight:600; text-decoration:none; transition:all 0.3s ease; }
+.btn:hover { background:#2563eb; transform:translateY(-2px) scale(1.05); }
+.hero-right { flex:1; text-align:center; margin-top: 25px; }
+.hero-right img { max-width:100%; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.2); }
 
-    nav a {
-      color: #cbd5e1;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.3s ease;
-    }
+/* Sections */
+section { max-width:1000px; margin:3rem auto; padding:0 1rem; }
+h2 { font-size:1.6rem; color:#1e293b; border-left:5px solid #3b82f6; padding-left:0.5rem; margin-bottom:1rem; }
 
-    nav a:hover {
-      color: #3b82f6;
-    }
+/* About Me */
+.about-card {
+  background:#e2e8f0;
+  padding:1.5rem;
+  border-radius:10px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.1);
+  margin-bottom:2rem;
+  color:#1e293b;
+  line-height:1.6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.about-card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
 
-    /* HERO SECTION */
-    .hero {
-      text-align: center;
-      padding: 5rem 1rem 3rem;
-      background: linear-gradient(135deg, #3b82f6, #0ea5e9);
-      color: #fff;
-    }
+/* Skills */
+#skills ul { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.8rem; list-style:none; margin-top:1rem; }
+#skills li { background:#e2e8f0; padding:0.8rem; border-radius:6px; text-align:center; font-weight:500; transition:0.3s; cursor:pointer; color:#1e293b; }
+#skills li:hover { background:#3b82f6; color:#fff; transform:scale(1.05); box-shadow:0 6px 20px rgba(0,0,0,0.2); }
 
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+/* Projects */
+.projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; }
+.card { border-radius:10px; padding:1.5rem; display:flex; flex-direction:column; justify-content:center; min-height:200px; color:#1e293b; background:#e2e8f0; transition:transform 0.3s ease, box-shadow 0.3s, background 0.3s, color 0.3s; cursor:pointer; opacity:0; transform:translateY(30px);}
+.card:hover { background:#3b82f6; color:#fff; transform:scale(1.05) rotateZ(1deg); box-shadow:0 6px 20px rgba(0,0,0,0.3); }
 
-    .hero p {
-      font-size: 1rem;
-      color: #e0f2fe;
-      max-width: 600px;
-      margin: 0 auto;
-    }
+/* Contact */
+.contact-container {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+.contact-card {
+  background:#e2e8f0;
+  padding:1rem 1.2rem;
+  border-radius:8px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:0.5rem;
+}
+.contact-card i { color:#3b82f6; font-size:1.5rem; }
+.contact-card a { color:#1e293b; text-decoration:none; transition:color 0.3s ease; }
+.contact-card a:hover { color:#2563eb; }
+.contact-card:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
 
-    section {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-    }
+/* Fade-in animation */
+.fade-in { opacity:0; transition:opacity 0.8s ease, transform 0.8s ease; }
+.fade-in.show { opacity:1; transform:translateY(0); }
 
-    h2 {
-      font-size: 1.6rem;
-      color: #1e293b;
-      border-left: 5px solid #3b82f6;
-      padding-left: 0.5rem;
-      margin-bottom: 1rem;
-    }
+/* Back to Top Button */
+#backToTop { position:fixed; bottom:30px; right:30px; background:#0f172a; color:#fff; border:none; padding:0.8rem 1rem; border-radius:50px; cursor:pointer; display:none; font-size:0.9rem; box-shadow:0 2px 10px rgba(0,0,0,0.3); animation:bounce 2s infinite; }
+#backToTop:hover { transform:scale(1.1); background:#1e293b; }
+@keyframes bounce { 0%,20%,50%,80%,100%{transform:translateY(0);} 40%{transform:translateY(-5px);} 60%{transform:translateY(-3px);} }
 
-    /* ABOUT */
-    #about p {
-      font-size: 1rem;
-      color: #475569;
-    }
+/* Footer */
+footer {
+  background:#e2e8f0;
+  color:#1e293b;
+  text-align:center;
+  padding:1.5rem 1rem;
+  border-top:1px solid #cbd5e1;
+  margin-top:3rem;
+}
+footer a { color:#3b82f6; margin:0 0.5rem; text-decoration:none; transition:color 0.3s ease; }
+footer a:hover { color:#2563eb; }
+.footer-social { margin-top:0.5rem; }
+.footer-social a { font-size:1.2rem; }
 
-    /* SKILLS */
-    #skills ul {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.8rem;
-      list-style: none;
-      margin-top: 1rem;
-    }
+/* DARK MODE */
+body.dark { background:#0f172a; color:#e0f2fe; }
+body.dark nav { background:transparent; }
+body.dark nav a, body.dark nav h1 { color:#f0fdf4; }
+body.dark .hero h2, body.dark .hero h3, body.dark .hero p { color:#fff; }
+body.dark .btn { background:#2563eb; color:#fff; }
+body.dark .btn:hover { background:#3b82f6; }
+body.dark h2 { color:#ffffff; border-left-color:#3b82f6; }
+body.dark .card, body.dark .about-card, body.dark .contact-card, body.dark footer { background:#374151; color:#f0fdf4; }
+body.dark footer a { color:#3b82f6; }
+body.dark footer a:hover { color:#2563eb; }
 
-    #skills li {
-      background: #e2e8f0;
-      padding: 0.8rem;
-      border-radius: 6px;
-      text-align: center;
-      font-weight: 500;
-    }
-
-    /* PROJECTS */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 1rem 1.5rem;
-    }
-
-    .card h3 {
-      color: #2563eb;
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #475569;
-    }
-
-    /* CONTACT */
-    #contact p {
-      margin-bottom: 0.3rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background: #0f172a;
-      color: #94a3b8;
-      font-size: 0.9rem;
-      margin-top: 3rem;
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .fade-in.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+/* Responsive Hero */
+@media(max-width:900px){ 
+  .hero { height:auto; padding:3rem 1rem; padding-top: 5rem; }
+  .hero .container { flex-direction:column; text-align:center; justify-content:center; gap:1.5rem; }
+  .hero-left h2 { font-size:1.5rem; border-right:none; }
+  .hero-left h3 { font-size:1.2rem; }
+  .hero-left p { max-width:100%; font-size:0.95rem; }
+  .btn-container { flex-direction:column; gap:0.8rem; align-items:center; }
+  .hero-right { width:80%; margin-top:1.5rem; }
+  .hero-right img { max-width:100%; height:auto; }
+}
+</style>
 </head>
 <body>
 
-  <nav>
-    <h1>[Your Name]</h1>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<nav>
+  <h1>Jhenor Aquino</h1>
+  <div id="hamburger">☰</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><span class="toggle-btn" id="darkToggle">Dark Mode</span></li>
+  </ul>
+  <ul class="mobile"></ul>
+</nav>
 
-  <section class="hero">
-    <h2>Hi, I'm Jhenor</h2>
-    <p>A Front-End Developer specializing in building interactive and user-friendly web interfaces using HTML, CSS, JavaScript, jQuery, and PHP.</p>
-  </section>
-
-  <section id="about" class="fade-in">
-    <h2>About Me</h2>
-    <p>
-      I’m a Front-End Developer with over 7 years of experience — 4 years focused on UI customization and 3 years as a Junior Programmer.
-      I create responsive, accessible, and engaging websites that deliver seamless user experiences. My projects include rewards pages, referral systems, and dynamic pop-up components.
-    </p>
-  </section>
-
-  <section id="skills" class="fade-in">
-    <h2>Skills</h2>
-    <ul>
-      <li>HTML5 / CSS3</li>
-      <li>JavaScript / jQuery</li>
-      <li>PHP Development</li>
-      <li>UI Customization</li>
-      <li>Responsive Design</li>
-      <li>Git & GitHub</li>
-    </ul>
-  </section>
-
-  <section id="projects" class="fade-in">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <img src="https://via.placeholder.com/400x200.png?text=Rewards+Page" alt="Rewards Page Project">
-        <div class="card-content">
-          <h3>Rewards Page</h3>
-          <p>Created a responsive rewards page using HTML, CSS, and jQuery, allowing users to track and redeem points efficiently.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://via.placeholder.com/400x200.png?text=Referral+System" alt="Referral Page Project">
-        <div class="card-content">
-          <h3>Referral System</h3>
-          <p>Developed a PHP-powered referral system with front-end JavaScript validation and live data updates.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://via.placeholder.com/400x200.png?text=Email+Template" alt="Email Template Project">
-        <div class="card-content">
-          <h3>Email Template</h3>
-          <p>Designed and coded mobile-optimized HTML email templates compatible with major email clients.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://via.placeholder.com/400x200.png?text=Popup+System" alt="Pop-up System Project">
-        <div class="card-content">
-          <h3>Dynamic Pop-up System</h3>
-          <p>Built an interactive promotional pop-up with jQuery and CSS animations for improved user engagement.</p>
-        </div>
+<section class="hero">
+  <div class="container">
+    <div class="hero-left">
+      <h2 class="typing"></h2>
+      <h3>Front-End Developer</h3>
+      <p>A Front-End Developer specializing in interactive and user-friendly web interfaces using HTML, CSS, JavaScript, jQuery, and PHP.</p>
+      <div class="btn-container">
+        <a href="#contact" class="btn">Hire Me</a>
+        <a href="Jhenor_Aquino_Resume.pdf" class="btn" download>Download Resume</a>
       </div>
     </div>
-  </section>
+    <div class="hero-right">
+      <img src="jhenor.png" alt="Jhenor Aquino">
+    </div>
+  </div>
+</section>
 
-  <section id="contact" class="fade-in">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:jhenoraquino09@gmail.com">jhenoraquino09@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/jhenor">jhenor</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/jhenor-aquino-29702828b/">jhenoraquino</a></p>
-    <p>Mobile Number: 09610546170</p>
-  </section>
+<section id="about" class="fade-in">
+  <h2>About Me</h2>
+  <div class="about-card">
+    <p>I’m a Front-End Developer with over 7 years of experience — 4 years in UI customization and 3 years as a Junior Programmer. I build responsive, accessible, and engaging websites.</p>
+    <p><strong>Key Skills:</strong> HTML, CSS, JavaScript, jQuery, PHP, UI Customization, Responsive Design, Git & GitHub.</p>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2025 Jhenor Aquino Portfolio.</p>
-  </footer>
+<section id="skills" class="fade-in">
+  <h2>Skills</h2>
+  <ul>
+    <li>HTML5 / CSS3</li>
+    <li>JavaScript / jQuery</li>
+    <li>PHP Development</li>
+    <li>UI Customization</li>
+    <li>Responsive Design</li>
+    <li>Git & GitHub</li>
+  </ul>
+</section>
 
-  <!-- jQuery Animation -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      function reveal() {
-        $(".fade-in").each(function() {
-          var top = $(this).offset().top;
-          var scroll = $(window).scrollTop();
-          var height = $(window).height();
-          if (top < scroll + height - 100) {
-            $(this).addClass("show");
-          }
-        });
-      }
-      reveal();
-      $(window).on("scroll", reveal);
-    });
-  </script>
+<section id="projects" class="fade-in">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card fade-in">
+      <h3>Rewards Page</h3>
+      <p>Responsive rewards page using HTML, CSS, and jQuery allowing users to track and redeem points efficiently.</p>
+    </div>
+    <div class="card fade-in">
+      <h3>Referral System</h3>
+      <p>PHP-powered referral system with front-end JavaScript validation and live data updates.</p>
+    </div>
+    <div class="card fade-in">
+      <h3>Email Template</h3>
+      <p>Mobile-optimized HTML email templates compatible with major email clients.</p>
+    </div>
+    <div class="card fade-in">
+      <h3>Dynamic Pop-up System</h3>
+      <p>Interactive promotional pop-up with jQuery and CSS animations for improved user engagement.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="fade-in">
+  <h2>Contact Me</h2>
+  <div class="contact-container">
+    <div class="contact-card"><i class="fas fa-envelope"></i><a href="mailto:jhenoraquino09@gmail.com">jhenoraquino09@gmail.com</a></div>
+    <div class="contact-card"><i class="fab fa-github"></i><a href="https://github.com/jhenor">github.com/jhenor</a></div>
+    <div class="contact-card"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/jhenor-aquino-29702828b/">linkedin.com/in/jhenor-aquino</a></div>
+    <div class="contact-card"><i class="fas fa-phone"></i>0961 054 6170</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Jhenor Aquino. All rights reserved.</p>
+  <div class="footer-social">
+    <a href="https://github.com/jhenor" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/jhenor-aquino-29702828b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="mailto:jhenoraquino09@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+</footer>
+
+<button id="backToTop">↑ Top</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+// Typing effect for h2 only
+const typingText = "Hi, I'm Jhenor 👋";
+let i = 0;
+function type(){
+  if(i < typingText.length){
+    $(".hero-left h2").append(typingText.charAt(i));
+    i++;
+    setTimeout(type, 120);
+  } else {
+    $(".hero-left h2").css("border-right","none");
+  }
+}
+type();
+
+// Scroll reveal & stagger animation
+function reveal() {
+  $(".fade-in").each(function(i) {
+    var top=$(this).offset().top, scroll=$(window).scrollTop(), height=$(window).height();
+    if(top < scroll + height - 50 || $(window).scrollTop()===0){
+      var that = $(this);
+      setTimeout(function(){ that.addClass("show"); }, i*150);
+    }
+  });
+}
+reveal();
+$(window).on("scroll",reveal);
+
+// Dark mode toggle
+$("#darkToggle").click(function(){ 
+    $("body").toggleClass("dark"); 
+    $(this).text($("body").hasClass("dark")?"Light Mode":"Dark Mode"); 
+});
+
+// Smooth scroll for nav
+$('nav a').click(function(e){ 
+    e.preventDefault(); 
+    $('html, body').animate({scrollTop:$($(this).attr('href')).offset().top-60},600); 
+});
+
+// Back to top
+$(window).scroll(function(){ 
+    if($(this).scrollTop()>200){ $("#backToTop").fadeIn(); } else { $("#backToTop").fadeOut(); } 
+});
+$("#backToTop").click(function(){ $("html, body").animate({scrollTop:0},600); });
+
+// Hamburger menu
+$("#hamburger").click(function(){ 
+    $("ul.mobile").toggleClass("show"); 
+    $("ul.mobile").html($("nav ul").html()); 
+});
+</script>
 </body>
 </html>
