@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JHENOR AQUINO | Front-End Developer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background: #f4f6f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #1e293b;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      color: #94a3b8;
+    }
+    section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h2 {
+      color: #1e293b;
+      border-bottom: 2px solid #3b82f6;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1rem 1.5rem;
+    }
+    .card h3 {
+      color: #2563eb;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #1e293b;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>JHENOR AQUINO</h1>
+    <p>Front-End Developer | HTML • CSS • JavaScript • jQuery • PHP</p>
+  </header>
+
+  <section id="about" class="fade-in">
+    <h2>About Me</h2>
+    <p>
+      I’m a Front-End Developer with over 7 years of experience — 
+      4 years specializing in front-end customization and 3 years as a Junior Programmer.
+      I focus on building responsive and user-friendly interfaces, including rewards pages, referral pages, email templates, and pop-up systems.
+    </p>
+  </section>
+
+  <section id="skills" class="fade-in">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML5, CSS3, JavaScript, jQuery</li>
+      <li>PHP (Custom Functions & Integration)</li>
+      <li>Responsive Design and UI Optimization</li>
+      <li>Git & GitHub Version Control</li>
+    </ul>
+  </section>
+
+  <section id="projects" class="fade-in">
+    <h2>Projects</h2>
+    <div class="projects">
+
+      <div class="card">
+        <img src="https://via.placeholder.com/400x200.png?text=Rewards+Page" alt="Rewards Page Project">
+        <div class="card-content">
+          <h3>Rewards Page Customization</h3>
+          <p>Developed a responsive rewards page with jQuery interactivity, improving user engagement and performance tracking.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/400x200.png?text=Referral+Page" alt="Referral Page Project">
+        <div class="card-content">
+          <h3>Referral Page System</h3>
+          <p>Built a PHP-based referral system integrated with JavaScript for dynamic user experience and smooth data flow.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/400x200.png?text=Email+Template" alt="Email Template Project">
+        <div class="card-content">
+          <h3>Email Template Customization</h3>
+          <p>Created and optimized mobile-responsive HTML email templates compatible with multiple email clients.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/400x200.png?text=Popup+System" alt="Pop-up System Project">
+        <div class="card-content">
+          <h3>Pop-up System Integration</h3>
+          <p>Developed dynamic pop-up modals using jQuery and PHP integration for notifications and promotions.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:jhenoraquino09@gmail.com">jhenoraquino09@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/jhenor/jhenoraquino">jhenoraquino</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/jhenor-aquino-29702828b/">jhenoraquino</a></p>
+    <p>Mobile number: 09610546170</p>
+  </section>
+
+  <footer>
+    <p>© 2025 JHENOR AQUINO. All rights reserved.</p>
+  </footer>
+
+  <!-- jQuery Animation -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      function reveal() {
+        $(".fade-in").each(function() {
+          var top = $(this).offset().top;
+          var scroll = $(window).scrollTop();
+          var height = $(window).height();
+          if (top < scroll + height - 100) {
+            $(this).addClass("show");
+          }
+        });
+      }
+      reveal();
+      $(window).on("scroll", reveal);
+    });
+  </script>
+
+</body>
+</html>
