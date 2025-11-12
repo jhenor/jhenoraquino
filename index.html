@@ -5,132 +5,79 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Jhenor Aquino | Front-End Developer</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
 <style>
-/* ================= RESET & GENERAL ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  scroll-behavior: smooth;
-  transition: all 0.3s ease;
-}
-body {
-  background: #f8fafc;
-  color: #1e293b;
-  line-height: 1.6;
-  opacity: 0;
-  transition: opacity 1.2s ease-in-out;
-}
-body.loaded { opacity: 1; }
+/* Reset & General */
+* { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif; scroll-behavior:smooth; transition:all 0.3s; }
+body { background:#f8fafc; color:#1e293b; line-height:1.6; }
 
-/* ================= NAVIGATION ================= */
-nav {
-  background: transparent;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  z-index: 10;
-}
-nav h1 { font-size: 1.4rem; letter-spacing: 0.5px; }
-nav ul { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
-nav a { color: #cbd5e1; text-decoration: none; font-size: 0.95rem; }
-nav a:hover { color: #3b82f6; }
-.toggle-btn {
-  cursor: pointer;
-  background: #3b82f6;
-  color: #fff;
-  padding: 0.3rem 0.8rem;
-  border-radius: 5px;
-  font-size: 0.85rem;
-}
-.toggle-btn:hover { background: #2563eb; }
+/* NAVIGATION */
+nav { background:transparent; color:#fff; display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; position:absolute; top:0; left:0; width:100%; z-index:10; }
+nav h1 { font-size:1.4rem; letter-spacing:0.5px; }
+nav ul { list-style:none; display:flex; gap:1.5rem; align-items:center; }
+nav a { color:#cbd5e1; text-decoration:none; font-size:0.95rem; }
+nav a:hover { color:#3b82f6; }
+.toggle-btn { cursor:pointer; background:#3b82f6; color:#fff; padding:0.3rem 0.8rem; border-radius:5px; font-size:0.85rem; }
+.toggle-btn:hover { background:#2563eb; }
 
-/* Hamburger Menu */
-#hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
-nav ul.mobile {
-  display: none;
-  flex-direction: column;
-  gap: 1rem;
-  background: #0f172a;
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-}
+/* Hamburger menu for mobile */
+#hamburger { display:none; cursor:pointer; font-size:1.5rem; }
+nav ul.mobile { display:none; flex-direction:column; gap:1rem; background:#0f172a; position:absolute; top:60px; right:20px; padding:1rem 2rem; border-radius:8px; }
+
 @media (max-width:768px){
   nav ul { display:none; }
   #hamburger { display:block; color:#fff; }
   nav ul.mobile.show { display:flex; }
 }
 
-/* ================= HERO SECTION ================= */
+/* HERO SECTION */
 .hero {
   width: 100%;
+  max-width: 100%;
   height: 600px;
   position: relative;
   overflow: hidden;
-  background: url('background.png') center/cover no-repeat fixed;
+  background: url('background.png') center/cover no-repeat;
   color: #fff;
   margin-top: 0;
-  background-position: center top;
-  transition: background-position 0.5s ease-out;
 }
 .hero .container {
   max-width: 1000px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  gap: 2rem;
-  position: relative;
-  z-index: 1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  gap:2rem;
+  position:relative;
+  z-index:1;
 }
-.hero-left { text-align: center; }
+.hero-left { text-align:center; }
 .hero h2 {
-  font-weight: 600;
-  display: inline;
-  border-right: 2px solid #ffffff;
-  white-space: nowrap;
-  overflow: hidden;
-  color: inherit;
-  margin-bottom: 0.5rem;
+  font-weight:600; 
+  display:inline; 
+  border-right:2px solid #ffffff; 
+  white-space:nowrap; 
+  overflow:hidden; 
+  color:inherit; 
+  margin-bottom:0.5rem;
 }
-.hero h3 { font-weight: 600; margin-bottom: 1rem; color: inherit; }
-.hero p { font-size: 1rem; color: inherit; max-width: 600px; margin: 0 auto 2rem; }
+.hero h3 {
+  font-weight:600;
+  margin-bottom:1rem;
+  color:inherit;
+}
+.hero p { font-size:1rem; color:inherit; max-width:600px; margin:0 auto 2rem; }
 .btn-container { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
-.btn {
-  background: #0f172a;
-  color: #fff;
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
+.btn { background:#0f172a; color:#fff; padding:0.8rem 1.5rem; border-radius:6px; font-weight:600; text-decoration:none; transition:all 0.3s ease; }
 .btn:hover { background:#2563eb; transform:translateY(-2px) scale(1.05); }
-.hero-right { flex:1; text-align:center; margin-top:25px; }
+.hero-right { flex:1; text-align:center; margin-top: 25px; }
 .hero-right img { max-width:100%; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.2); }
 
-/* ================= SECTIONS ================= */
+/* Sections */
 section { max-width:1000px; margin:3rem auto; padding:0 1rem; }
-h2 {
-  font-size:1.6rem;
-  color:#1e293b;
-  border-left:5px solid #3b82f6;
-  padding-left:0.5rem;
-  margin-bottom:1rem;
-}
+h2 { font-size:1.6rem; color:#1e293b; border-left:5px solid #3b82f6; padding-left:0.5rem; margin-bottom:1rem; }
 
-/* About */
+/* About Me */
 .about-card {
   background:#e2e8f0;
   padding:1.5rem;
@@ -144,51 +91,14 @@ h2 {
 .about-card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
 
 /* Skills */
-#skills ul {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:0.8rem;
-  list-style:none;
-  margin-top:1rem;
-}
-#skills li {
-  background:#e2e8f0;
-  padding:0.8rem;
-  border-radius:6px;
-  text-align:center;
-  font-weight:500;
-  transition:0.3s;
-  cursor:pointer;
-  color:#1e293b;
-}
+#skills ul { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.8rem; list-style:none; margin-top:1rem; }
+#skills li { background:#e2e8f0; padding:0.8rem; border-radius:6px; text-align:center; font-weight:500; transition:0.3s; cursor:pointer; color:#1e293b; }
 #skills li:hover { background:#3b82f6; color:#fff; transform:scale(1.05); box-shadow:0 6px 20px rgba(0,0,0,0.2); }
 
 /* Projects */
-.projects {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:1.5rem;
-}
-.card {
-  border-radius:10px;
-  padding:1.5rem;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  min-height:200px;
-  color:#1e293b;
-  background:#e2e8f0;
-  transition:transform 0.3s ease, box-shadow 0.3s, background 0.3s, color 0.3s;
-  cursor:pointer;
-  opacity:0;
-  transform:translateY(30px);
-}
-.card:hover {
-  background:#3b82f6;
-  color:#fff;
-  transform:scale(1.05);
-  box-shadow:0 6px 20px rgba(0,0,0,0.3);
-}
+.projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; }
+.card { border-radius:10px; padding:1.5rem; display:flex; flex-direction:column; justify-content:center; min-height:200px; color:#1e293b; background:#e2e8f0; transition:transform 0.3s ease, box-shadow 0.3s, background 0.3s, color 0.3s; cursor:pointer; opacity:0; transform:translateY(30px);}
+.card:hover { background:#3b82f6; color:#fff; transform:scale(1.05) rotateZ(1deg); box-shadow:0 6px 20px rgba(0,0,0,0.3); }
 
 /* Contact */
 .contact-container {
@@ -214,41 +124,16 @@ h2 {
 .contact-card a:hover { color:#2563eb; }
 .contact-card:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
 
-/* ================= FADE-IN FALLBACK ================= */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-}
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Fade-in animation */
+.fade-in { opacity:0; transition:opacity 0.8s ease, transform 0.8s ease; }
+.fade-in.show { opacity:1; transform:translateY(0); }
 
-/* ================= BACK TO TOP ================= */
-#backToTop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #0f172a;
-  color: #fff;
-  border: none;
-  padding: 0.8rem 1rem;
-  border-radius: 50px;
-  cursor: pointer;
-  display: none;
-  font-size: 0.9rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  animation: bounce 2s infinite;
-}
-#backToTop:hover { transform: scale(1.1); background: #1e293b; }
-@keyframes bounce {
-  0%,20%,50%,80%,100%{transform:translateY(0);}
-  40%{transform:translateY(-5px);}
-  60%{transform:translateY(-3px);}
-}
+/* Back to Top Button */
+#backToTop { position:fixed; bottom:30px; right:30px; background:#0f172a; color:#fff; border:none; padding:0.8rem 1rem; border-radius:50px; cursor:pointer; display:none; font-size:0.9rem; box-shadow:0 2px 10px rgba(0,0,0,0.3); animation:bounce 2s infinite; }
+#backToTop:hover { transform:scale(1.1); background:#1e293b; }
+@keyframes bounce { 0%,20%,50%,80%,100%{transform:translateY(0);} 40%{transform:translateY(-5px);} 60%{transform:translateY(-3px);} }
 
-/* ================= FOOTER ================= */
+/* Footer */
 footer {
   background:#e2e8f0;
   color:#1e293b;
@@ -262,33 +147,22 @@ footer a:hover { color:#2563eb; }
 .footer-social { margin-top:0.5rem; }
 .footer-social a { font-size:1.2rem; }
 
-/* ================= DARK MODE ================= */
-body.dark {
-  background:#0f172a;
-  color:#e0f2fe;
-}
+/* DARK MODE */
+body.dark { background:#0f172a; color:#e0f2fe; }
+body.dark nav { background:transparent; }
 body.dark nav a, body.dark nav h1 { color:#f0fdf4; }
 body.dark .hero h2, body.dark .hero h3, body.dark .hero p { color:#fff; }
 body.dark .btn { background:#2563eb; color:#fff; }
 body.dark .btn:hover { background:#3b82f6; }
 body.dark h2 { color:#ffffff; border-left-color:#3b82f6; }
-body.dark .card, body.dark .about-card, body.dark .contact-card, body.dark footer {
-  background:#374151; color:#f0fdf4;
-}
+body.dark .card, body.dark .about-card, body.dark .contact-card, body.dark footer { background:#374151; color:#f0fdf4; }
 body.dark .contact-card a {color: #ffffff; }
 body.dark footer a { color:#3b82f6; }
 body.dark footer a:hover { color:#2563eb; }
 
-/* Slow down animations in dark mode for calmness */
-body.dark .fade-in,
-body.dark .card,
-body.dark .contact-card {
-  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
-}
-
-/* ================= RESPONSIVE HERO ================= */
-@media(max-width:900px){
-  .hero { height:auto; padding:3rem 1rem; padding-top:5rem; }
+/* Responsive Hero */
+@media(max-width:900px){ 
+  .hero { height:auto; padding:3rem 1rem; padding-top: 5rem; }
   .hero .container { flex-direction:column; text-align:center; justify-content:center; gap:1.5rem; }
   .hero-left h2 { font-size:1.5rem; border-right:none; }
   .hero-left h3 { font-size:1.2rem; }
@@ -299,8 +173,8 @@ body.dark .contact-card {
 }
 </style>
 </head>
-
 <body>
+
 <nav>
   <h1>Jhenor Aquino</h1>
   <div id="hamburger">☰</div>
@@ -354,12 +228,28 @@ body.dark .contact-card {
 <section id="projects" class="fade-in">
   <h2>Projects</h2>
   <div class="projects">
-    <div class="card fade-in"><h3>Landing Page</h3><p>A modern, responsive landing page designed with HTML, CSS, and JavaScript.</p></div>
-    <div class="card fade-in"><h3>Rewards Page</h3><p>Responsive rewards page using HTML, CSS, and jQuery allowing users to track and redeem points efficiently.</p></div>
-    <div class="card fade-in"><h3>Referral System</h3><p>PHP-powered referral system with front-end JavaScript validation and live data updates.</p></div>
-    <div class="card fade-in"><h3>Email Template</h3><p>Mobile-optimized HTML email templates compatible with major email clients.</p></div>
-    <div class="card fade-in"><h3>Dynamic Pop-up System</h3><p>Interactive promotional pop-up with jQuery and CSS animations for improved user engagement.</p></div>
+  <div class="card fade-in">
+    <h3>Landing Page</h3>
+    <p>A modern, responsive landing page designed with HTML, CSS, and JavaScript to showcase products, services, or personal portfolio.</p>
   </div>
+  <div class="card fade-in">
+    <h3>Rewards Page</h3>
+    <p>Responsive rewards page using HTML, CSS, and jQuery allowing users to track and redeem points efficiently.</p>
+  </div>
+  <div class="card fade-in">
+    <h3>Referral System</h3>
+    <p>PHP-powered referral system with front-end JavaScript validation and live data updates.</p>
+  </div>
+  <div class="card fade-in">
+    <h3>Email Template</h3>
+    <p>Mobile-optimized HTML email templates compatible with major email clients.</p>
+  </div>
+  <div class="card fade-in">
+    <h3>Dynamic Pop-up System</h3>
+    <p>Interactive promotional pop-up with jQuery and CSS animations for improved user engagement.</p>
+  </div>
+</div>
+
 </section>
 
 <section id="contact" class="fade-in">
@@ -383,17 +273,9 @@ body.dark .contact-card {
 
 <button id="backToTop">↑ Top</button>
 
-<!-- jQuery & ScrollReveal -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://unpkg.com/scrollreveal"></script>
-
 <script>
-// Page load fade-in
-window.addEventListener("load", () => {
-  document.body.classList.add("loaded");
-});
-
-// Typing effect
+// Typing effect for h2 only
 const typingText = "Hi, I'm Jhenor 👋";
 let i = 0;
 function type(){
@@ -407,55 +289,43 @@ function type(){
 }
 type();
 
-// Smooth minimal ScrollReveal animations
-ScrollReveal({
-  distance: '40px',
-  duration: 1000,
-  easing: 'ease-in-out',
-  interval: 150,
-  cleanup: true
-});
-ScrollReveal().reveal('.hero-left', { origin: 'left', delay: 200 });
-ScrollReveal().reveal('.hero-right', { origin: 'right', delay: 400 });
-ScrollReveal().reveal('section h2', { origin: 'bottom', distance: '20px', delay: 200 });
-ScrollReveal().reveal('.about-card', { origin: 'bottom', delay: 300 });
-ScrollReveal().reveal('#skills li', { origin: 'bottom', delay: 200, interval: 100 });
-ScrollReveal().reveal('#projects .card', { origin: 'bottom', delay: 200, interval: 120 });
-ScrollReveal().reveal('#contact .contact-card', { origin: 'bottom', delay: 200, interval: 150 });
+// Scroll reveal & stagger animation
+function reveal() {
+  $(".fade-in").each(function(i) {
+    var top=$(this).offset().top, scroll=$(window).scrollTop(), height=$(window).height();
+    if(top < scroll + height - 50 || $(window).scrollTop()===0){
+      var that = $(this);
+      setTimeout(function(){ that.addClass("show"); }, i*150);
+    }
+  });
+}
+reveal();
+$(window).on("scroll",reveal);
 
-// Dark Mode
-$("#darkToggle").on("click", function() {
-  $("body").toggleClass("dark");
-  $(this).text($("body").hasClass("dark") ? "Light Mode" : "Dark Mode");
+// Dark mode toggle
+$("#darkToggle").click(function(){ 
+    $("body").toggleClass("dark"); 
+    $(this).text($("body").hasClass("dark")?"Light Mode":"Dark Mode"); 
+});
+
+// Smooth scroll for nav
+$('nav a').click(function(e){ 
+    e.preventDefault(); 
+    $('html, body').animate({scrollTop:$($(this).attr('href')).offset().top-60},600); 
 });
 
 // Back to top
-$(window).on("scroll", function(){
-  if($(this).scrollTop() > 400){
-    $("#backToTop").fadeIn();
-  } else {
-    $("#backToTop").fadeOut();
-  }
+$(window).scroll(function(){ 
+    if($(this).scrollTop()>200){ $("#backToTop").fadeIn(); } else { $("#backToTop").fadeOut(); } 
 });
-$("#backToTop").on("click", function(){
-  $("html, body").animate({scrollTop: 0}, 700);
-});
+$("#backToTop").click(function(){ $("html, body").animate({scrollTop:0},600); });
 
-// Mobile menu
-$("#hamburger").on("click", function(){
-  $("nav ul.mobile").toggleClass("show");
-  $("nav ul.mobile").html(`
-    <li><a href='#about'>About</a></li>
-    <li><a href='#skills'>Skills</a></li>
-    <li><a href='#projects'>Projects</a></li>
-    <li><a href='#contact'>Contact</a></li>
-    <li><span class='toggle-btn' id='darkToggleMobile'>Dark Mode</span></li>
-  `);
-});
-$(document).on("click", "#darkToggleMobile", function(){
-  $("body").toggleClass("dark");
-  $(this).text($("body").hasClass("dark") ? "Light Mode" : "Dark Mode");
+// Hamburger menu
+$("#hamburger").click(function(){ 
+    $("ul.mobile").toggleClass("show"); 
+    $("ul.mobile").html($("nav ul").html()); 
 });
 </script>
 </body>
 </html>
+
